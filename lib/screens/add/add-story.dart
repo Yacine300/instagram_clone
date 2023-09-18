@@ -50,49 +50,49 @@ class _AddStoryState extends State<AddStory> {
       return Scaffold(
         backgroundColor: Colors.black,
         bottomNavigationBar:
-            storys.isSelectedStory ? StoryNavBar() : SizedBox(),
+            storys.isSelectedStory ? const StoryNavBar() : const SizedBox(),
         appBar: AppBar(
           backgroundColor: Colors.black,
           leading: IconButton(
               onPressed: () => Navigator.of(context).pop(),
-              icon: Icon(
+              icon: const Icon(
                 CupertinoIcons.xmark,
                 size: 24,
               )),
           actions: [
             IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.settings,
                   size: 24,
                 )),
           ],
         ),
         body: SingleChildScrollView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 150),
-                  AddStoryIcon(),
-                  SizedBox(
+                  const SizedBox(height: 150),
+                  const AddStoryIcon(),
+                  const SizedBox(
                     height: 20,
                   ),
-                  FirstText(),
-                  SizedBox(
+                  const FirstText(),
+                  const SizedBox(
                     height: 15,
                   ),
-                  SceondText(),
-                  SizedBox(
+                  const SceondText(),
+                  const SizedBox(
                     height: 15,
                   ),
                   GestureDetector(
                       onTap: () => AppSettings.openAppSettings(),
-                      child: OpenSettingButton()),
-                  SizedBox(
+                      child: const OpenSettingButton()),
+                  const SizedBox(
                     height: 60,
                   ),
                   GestureDetector(
@@ -111,7 +111,7 @@ class _AddStoryState extends State<AddStory> {
                     child: Container(
                       height: 80,
                       width: 80,
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
                           color: Colors.white.withOpacity(0.5)),
@@ -131,7 +131,7 @@ class _AddStoryState extends State<AddStory> {
       );
     } else {
       return !storys.isSelectedStory
-          ? AccessCameraAllowed()
+          ? const AccessCameraAllowed()
           : WhenStroySelected(selectedStorys: storys.currentChargedStory);
     }
   }
@@ -152,7 +152,7 @@ class _AccessCameraAllowedState extends State<AccessCameraAllowed> {
     return Scaffold(
         backgroundColor: Colors.black,
         bottomNavigationBar: Container(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           alignment: Alignment.center,
           height: 60,
           width: double.infinity,
@@ -194,13 +194,14 @@ class _AccessCameraAllowedState extends State<AccessCameraAllowed> {
         ),
         body: Stack(
           children: [
-            PreviewCamera(),
+            const PreviewCamera(),
             SafeArea(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.8,
-                  child: Column(
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -229,7 +230,7 @@ class _StoryNavBarState extends State<StoryNavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       alignment: Alignment.center,
       height: 60,
       width: double.infinity,
@@ -306,7 +307,7 @@ class _TakePictureButtonState extends State<TakePictureButton> {
       child: Container(
         height: 80,
         width: 80,
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
             color: Colors.white.withOpacity(0.8)),
@@ -338,7 +339,7 @@ class _ActionsState extends State<Actions> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Icon(
+        const Icon(
           CupertinoIcons.xmark,
           size: 28,
         ),
@@ -355,7 +356,7 @@ class _ActionsState extends State<Actions> {
               !isFlashOn ? Icons.flash_off_rounded : Icons.flash_on_rounded,
               size: 28),
         ),
-        Icon(CupertinoIcons.settings, size: 28)
+        const Icon(CupertinoIcons.settings, size: 28)
       ],
     );
   }
@@ -441,7 +442,7 @@ class NavBarAction extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Text(
+                const Text(
                   "STORY",
                   style: TextStyle(
                       color: Colors.white,
@@ -480,7 +481,7 @@ class OpenSettingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       "Open Settings",
       style: TextStyle(
           color: Colors.blue, fontWeight: FontWeight.w400, fontSize: 15),
@@ -495,7 +496,7 @@ class SceondText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       "This let you share your photos, record videos and preview effects. You can change this anytime in you device settings. ",
       textAlign: TextAlign.center,
       style: TextStyle(
@@ -511,7 +512,7 @@ class FirstText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       "Allow Instagram to access your camera and microphone",
       textAlign: TextAlign.center,
       style: TextStyle(
@@ -531,12 +532,12 @@ class AddStoryIcon extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(
+        const Icon(
           CupertinoIcons.camera_viewfinder,
           color: Colors.white,
           size: 60,
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Container(

@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/screens/add/add-Post.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'add-story.dart';
-
 class AddReel extends StatefulWidget {
   static const routeName = "/reel";
   const AddReel({super.key});
@@ -66,7 +64,7 @@ class _AddReelState extends State<AddReel> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text(
+        title: const Text(
           'New Reel',
           style: TextStyle(
               color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
@@ -74,14 +72,14 @@ class _AddReelState extends State<AddReel> {
         centerTitle: true,
         leading: IconButton(
             onPressed: () => Navigator.of(context).pop(),
-            icon: Icon(
+            icon: const Icon(
               CupertinoIcons.xmark,
               size: 24,
             )),
         actions: [
           IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.settings,
                 size: 24,
               )),
@@ -100,7 +98,7 @@ class _AddReelState extends State<AddReel> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: Colors.grey.withOpacity(0.18)),
-                  child: Column(
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -121,7 +119,7 @@ class _AddReelState extends State<AddReel> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: Colors.grey.withOpacity(0.18)),
-                  child: Column(
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -142,7 +140,7 @@ class _AddReelState extends State<AddReel> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: Colors.grey.withOpacity(0.18)),
-                  child: Column(
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -159,17 +157,17 @@ class _AddReelState extends State<AddReel> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            Row(
+            const Row(
               children: [
                 Recent(),
                 Spacer(),
                 SelectMultiple(),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
@@ -178,11 +176,12 @@ class _AddReelState extends State<AddReel> {
               child: Stack(
                 children: [
                   GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 2,
-                        mainAxisSpacing: 2,
-                        childAspectRatio: 0.6),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 2,
+                            mainAxisSpacing: 2,
+                            childAspectRatio: 0.6),
                     itemCount: medias.length,
                     itemBuilder: (context, index) {
                       if (!medias[index].path.endsWith(".mp4")) {
@@ -256,7 +255,7 @@ class OpenSettingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       "Open Settings",
       style: TextStyle(
           color: Colors.blue, fontWeight: FontWeight.w400, fontSize: 15),
@@ -271,7 +270,7 @@ class SceondText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       "This let you share your photos, record videos and preview effects. You can change this anytime in you device settings. ",
       textAlign: TextAlign.center,
       style: TextStyle(
@@ -287,7 +286,7 @@ class FirstText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       "Allow Instagram to access your camera and microphone",
       textAlign: TextAlign.center,
       style: TextStyle(
@@ -307,12 +306,12 @@ class AddStoryIcon extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(
+        const Icon(
           CupertinoIcons.camera_viewfinder,
           color: Colors.white,
           size: 60,
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Container(

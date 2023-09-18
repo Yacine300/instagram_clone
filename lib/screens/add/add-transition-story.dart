@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/screens/add/add-story-small.dart';
 import 'package:instagram_clone/screens/add/add-story.dart';
@@ -28,16 +27,16 @@ class AddTransitionStory extends StatelessWidget {
             if (index == 0) {
               return AddStorySmall();
             } else if (index == 1) {
-              return AddStory();
+              return const AddStory();
             }
           } else {
             if (index == 0) {
-              return AddStory();
+              return const AddStory();
             } else if (index == 1) {
               return AddStorySmall();
             }
           }
-          return SizedBox
+          return const SizedBox
               .shrink(); // Return an empty widget for any other index
         },
       ),

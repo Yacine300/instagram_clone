@@ -1,11 +1,9 @@
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../function.dart';
 import '../../providers/posts.dart';
 
 class AddPostFinal extends StatefulWidget {
@@ -17,7 +15,7 @@ class AddPostFinal extends StatefulWidget {
 }
 
 class _AddPostFinalState extends State<AddPostFinal> {
-  TextEditingController _textEditingController = TextEditingController();
+  final TextEditingController _textEditingController = TextEditingController();
   String _inputText = '';
   @override
   void dispose() {
@@ -33,7 +31,7 @@ class _AddPostFinalState extends State<AddPostFinal> {
       backgroundColor: Colors.black87,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
@@ -51,7 +49,7 @@ class _AddPostFinalState extends State<AddPostFinal> {
         centerTitle: true,
         leading: IconButton(
             onPressed: () => Navigator.of(context).pop(),
-            icon: Icon(
+            icon: const Icon(
               CupertinoIcons.xmark,
               size: 32,
             )),
@@ -63,12 +61,12 @@ class _AddPostFinalState extends State<AddPostFinal> {
 
               Navigator.of(context).pop();
             },
-            child: Text(
+            child: const Text(
               "Share",
               style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 15,
           ),
         ],
@@ -90,7 +88,7 @@ class _AddPostFinalState extends State<AddPostFinal> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     SizedBox(
@@ -123,12 +121,12 @@ class _AddPostFinalState extends State<AddPostFinal> {
                   ],
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.white38,
                 thickness: 0.3,
                 height: 20,
               ),
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
                   "Tag people",
@@ -138,12 +136,12 @@ class _AddPostFinalState extends State<AddPostFinal> {
                       fontSize: 16),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.white38,
                 thickness: 0.3,
                 height: 20,
               ),
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
                   "Add Location",
@@ -153,12 +151,12 @@ class _AddPostFinalState extends State<AddPostFinal> {
                       fontSize: 16),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.transparent,
                 height: 20,
                 thickness: 0.3,
               ),
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
                   "Add Music",
@@ -168,7 +166,7 @@ class _AddPostFinalState extends State<AddPostFinal> {
                       fontSize: 16),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.white38,
                 height: 20,
                 thickness: 0.3,
@@ -176,13 +174,14 @@ class _AddPostFinalState extends State<AddPostFinal> {
               Container(
                 height: 35,
                 width: 180,
-                margin: EdgeInsets.symmetric(horizontal: 15),
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+                margin: const EdgeInsets.symmetric(horizontal: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(7),
                     color: Colors.white12),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -205,12 +204,12 @@ class _AddPostFinalState extends State<AddPostFinal> {
                   ],
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.white38,
                 height: 20,
                 thickness: 0.3,
               ),
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
                   "Also post to",
@@ -220,7 +219,7 @@ class _AddPostFinalState extends State<AddPostFinal> {
                       fontSize: 16),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.transparent,
                 height: 20,
                 thickness: 0.3,
@@ -230,7 +229,7 @@ class _AddPostFinalState extends State<AddPostFinal> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         "Share to facebook",
                         style: TextStyle(
                             color: Colors.white,
@@ -245,12 +244,12 @@ class _AddPostFinalState extends State<AddPostFinal> {
                       )
                     ],
                   )),
-              Divider(
+              const Divider(
                 color: Colors.transparent,
                 height: 20,
                 thickness: 0.3,
               ),
-              Padding(
+              const Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

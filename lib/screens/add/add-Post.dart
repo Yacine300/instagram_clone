@@ -2,19 +2,13 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/providers/storys.dart';
+
 import 'package:instagram_clone/screens/add/add-post-next.dart';
-import 'package:instagram_clone/screens/add/add-story.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:provider/provider.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:video_player/video_player.dart';
-
 import '../../function.dart';
-import '../../models/post.dart';
-import '../../providers/posts.dart';
-import 'add-reels.dart';
 
 class GalleryScreen extends StatefulWidget {
   static const routeName = '/gallery';
@@ -52,9 +46,9 @@ class _GalleryScreenState extends State<GalleryScreen> {
 
       for (var file in files) {
         if (file is File) {
-          if (file.path.endsWith('.jpg') || file.path.endsWith('.jpeg')) {
-            medias.add(file);
-          } else if (file.path.endsWith('.mp4')) {
+          if (file.path.endsWith('.jpg') ||
+              file.path.endsWith('.jpeg') ||
+              file.path.endsWith('.png')) {
             medias.add(file);
           }
         }
@@ -77,7 +71,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
         backgroundColor: Colors.black87,
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text(
+          title: const Text(
             'New Post',
             style: TextStyle(
                 color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
@@ -85,7 +79,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
           centerTitle: true,
           leading: IconButton(
               onPressed: () => Navigator.of(context).pop(),
-              icon: Icon(
+              icon: const Icon(
                 CupertinoIcons.xmark,
                 size: 32,
               )),
@@ -107,18 +101,18 @@ class _GalleryScreenState extends State<GalleryScreen> {
 
                 Navigator.of(context).pop();*/
               },
-              child: Text(
+              child: const Text(
                 "Next",
                 style: TextStyle(color: Colors.blue),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 15,
             ),
           ],
         ),
         body: isLoading
-            ? Center(
+            ? const Center(
                 child: CircularProgressIndicator(),
               )
             : Column(
@@ -142,8 +136,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
                     height: 50,
                     width: double.infinity,
                     color: Colors.black,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Row(
                         children: [
                           Recent(),
@@ -180,7 +174,7 @@ class CameraButton extends StatelessWidget {
     return CircleAvatar(
       backgroundColor: Colors.grey.withOpacity(0.5),
       radius: 15,
-      child: Icon(
+      child: const Icon(
         Icons.camera_alt_outlined,
         color: Colors.white,
         size: 20,
@@ -203,7 +197,7 @@ class SelectMultiple extends StatelessWidget {
         borderRadius: BorderRadius.circular(50),
         color: Colors.grey.withOpacity(0.5),
       ),
-      child: Row(
+      child: const Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -228,7 +222,7 @@ class Recent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       width: 80,
       child: Row(
         children: [
@@ -269,7 +263,7 @@ class _StorageElementsState extends State<StorageElements> {
     return Stack(
       children: [
         GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
             crossAxisSpacing: 1,
             mainAxisSpacing: 1,
@@ -353,7 +347,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
         if (snapshot.connectionState == ConnectionState.done) {
           return VideoPlayer(_videoController);
         } else {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }

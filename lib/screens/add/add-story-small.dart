@@ -3,9 +3,6 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/function.dart';
-import 'package:instagram_clone/models/story.dart';
-import 'package:instagram_clone/screens/add/add-reels.dart';
-import 'package:instagram_clone/screens/add/add-story.dart';
 import 'package:instagram_clone/screens/add/when-story-selected.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -109,7 +106,7 @@ class _AddStorySmallState extends State<AddStorySmall> {
                 backgroundColor: Colors.black87,
                 appBar: AppBar(
                   backgroundColor: Colors.black,
-                  title: Text(
+                  title: const Text(
                     'Add To Story',
                     style: TextStyle(
                         color: Colors.white,
@@ -119,31 +116,24 @@ class _AddStorySmallState extends State<AddStorySmall> {
                   centerTitle: true,
                   leading: IconButton(
                       onPressed: () => Navigator.of(context).pop(),
-                      icon: Icon(
+                      icon: const Icon(
                         CupertinoIcons.xmark,
                         size: 28,
                       )),
                   actions: [
-                    GestureDetector(
-                      onTap: () {
-                        /* Provider.of<Storys>(context, listen: false)
-                    .addNewStory([medias[currentIndex]], "007XCDF");
-                Navigator.of(context).pop();*/
-                      },
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.settings_outlined,
-                            size: 28,
-                          )),
-                    ),
-                    SizedBox(
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.settings_outlined,
+                          size: 28,
+                        )),
+                    const SizedBox(
                       width: 15,
                     ),
                   ],
                 ),
                 body: isLoading
-                    ? Center(
+                    ? const Center(
                         child: CircularProgressIndicator(),
                       )
                     : Column(
@@ -195,7 +185,7 @@ class _AddStorySmallState extends State<AddStorySmall> {
                             child: GridView.builder(
                               controller: _scrollController,
                               gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount:
                                     2, // Set the number of columns here
                                 crossAxisSpacing: 0.5,
@@ -233,18 +223,11 @@ class _AddStorySmallState extends State<AddStorySmall> {
                                             child: Stack(
                                               children: [
                                                 Positioned.fill(
-                                                  child: Container(
-                                                      decoration: BoxDecoration(
-                                                          /*  gradient: LinearGradient(
-                                          colors: colors,
-                                          begin: Alignment.topLeft,
-                                          end: Alignment.bottomRight,
-                                        ),*/
-                                                          ),
+                                                  child: SizedBox(
                                                       child: Image.file(
-                                                        medias[index],
-                                                        fit: BoxFit.cover,
-                                                      )),
+                                                    medias[index],
+                                                    fit: BoxFit.cover,
+                                                  )),
                                                 ),
                                                 Positioned(
                                                   top: 10,
@@ -292,14 +275,7 @@ class _AddStorySmallState extends State<AddStorySmall> {
                                               ],
                                             ),
                                           )
-                                        : Container(
-                                            decoration: BoxDecoration(
-                                                /*  gradient: LinearGradient(
-                                      colors: colors,
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight,
-                                    ),*/
-                                                ),
+                                        : SizedBox(
                                             child: Image.file(
                                               medias[index],
                                               fit: BoxFit.cover,
@@ -336,14 +312,7 @@ class _AddStorySmallState extends State<AddStorySmall> {
                                             child: Stack(
                                               children: [
                                                 Positioned.fill(
-                                                  child: Container(
-                                                      decoration: BoxDecoration(
-                                                          /*  gradient: LinearGradient(
-                                          colors: colors,
-                                          begin: Alignment.topLeft,
-                                          end: Alignment.bottomRight,
-                                        ),*/
-                                                          ),
+                                                  child: SizedBox(
                                                       child: VideoPlayerWidget(
                                                           video)),
                                                 ),
@@ -393,14 +362,7 @@ class _AddStorySmallState extends State<AddStorySmall> {
                                               ],
                                             ),
                                           )
-                                        : Container(
-                                            decoration: BoxDecoration(
-                                                /*  gradient: LinearGradient(
-                                      colors: colors,
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight,
-                                    ),*/
-                                                ),
+                                        : SizedBox(
                                             child: VideoPlayerWidget(video)),
                                   );
                                 }
@@ -456,7 +418,7 @@ class _AddStorySmallState extends State<AddStorySmall> {
               right: 0,
               child: chargedStorys.isNotEmpty
                   ? Container(
-                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
                       height: 100,
                       color: Colors.black54,
                       child: Row(
@@ -492,7 +454,7 @@ class _AddStorySmallState extends State<AddStorySmall> {
                               onPressed: () {
                                 storys.chargeStory(chargedStorys);
                               },
-                              child: Row(
+                              child: const Row(
                                 children: [
                                   Text(
                                     "Next",
@@ -510,7 +472,7 @@ class _AddStorySmallState extends State<AddStorySmall> {
                         ],
                       ),
                     )
-                  : SizedBox(),
+                  : const SizedBox(),
             )
           ]);
   }
@@ -523,7 +485,7 @@ class SelectMultiple extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       alignment: Alignment.center,
       height: 35,
       decoration: BoxDecoration(
@@ -532,7 +494,8 @@ class SelectMultiple extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
+        style:
+            const TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
       ),
     );
   }

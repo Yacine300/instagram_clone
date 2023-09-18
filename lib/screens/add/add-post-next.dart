@@ -2,20 +2,11 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/providers/storys.dart';
+
 import 'package:instagram_clone/screens/add/add-post-final.dart';
-import 'package:instagram_clone/screens/add/add-story.dart';
-import 'package:instagram_clone/screens/home-screen/home.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:photo_view/photo_view.dart';
-import 'package:provider/provider.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:video_player/video_player.dart';
-
 import '../../function.dart';
-import '../../models/post.dart';
-import '../../providers/posts.dart';
-import 'add-reels.dart';
 
 class NextPost extends StatefulWidget {
   static const routeName = '/postNext';
@@ -152,13 +143,13 @@ class _NextPostState extends State<NextPost>
                     filter = false;
                   });
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.edit,
                   size: 30,
                   color: Colors.white,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 15,
               ),
               GestureDetector(
@@ -176,18 +167,20 @@ class _NextPostState extends State<NextPost>
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 Container(
-                                  margin: EdgeInsets.symmetric(vertical: 5),
+                                  margin:
+                                      const EdgeInsets.symmetric(vertical: 5),
                                   height: 3,
                                   width: 50,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
                                       color: Colors.grey),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 15,
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 20),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20),
                                   child: TextField(
                                     style: const TextStyle(
                                         color: Colors.white,
@@ -211,13 +204,13 @@ class _NextPostState extends State<NextPost>
                                           borderRadius: BorderRadius.circular(
                                               10), // Set the border radius
                                         ),
-                                        prefixIcon: Icon(
+                                        prefixIcon: const Icon(
                                           CupertinoIcons.search,
                                           color: Colors.white,
                                         )),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 15,
                                 ),
                                 TabBar(
@@ -254,7 +247,7 @@ class _NextPostState extends State<NextPost>
                                           ),
                                     ),
                                   ),
-                                  tabs: [
+                                  tabs: const [
                                     Tab(
                                       text: 'For You',
                                     ),
@@ -262,7 +255,7 @@ class _NextPostState extends State<NextPost>
                                   ],
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       horizontal: 15, vertical: 15),
                                   child: Row(
                                     children: [
@@ -272,14 +265,14 @@ class _NextPostState extends State<NextPost>
                                         decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(5),
-                                            image: DecorationImage(
+                                            image: const DecorationImage(
                                                 image: NetworkImage(
                                                     "https://i.pinimg.com/236x/13/14/30/131430ed522cfe8c592eb75b9ca14d60.jpg"))),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 10,
                                       ),
-                                      Column(
+                                      const Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         crossAxisAlignment:
@@ -298,10 +291,10 @@ class _NextPostState extends State<NextPost>
                                           ),
                                         ],
                                       ),
-                                      Spacer(),
+                                      const Spacer(),
                                       IconButton(
                                           onPressed: () {},
-                                          icon: Icon(
+                                          icon: const Icon(
                                             Icons.play_circle_outline_rounded,
                                             size: 26,
                                           ))
@@ -315,7 +308,7 @@ class _NextPostState extends State<NextPost>
                       },
                       isScrollControlled: true); // this to take all the height
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.music_note_rounded,
                   size: 30,
                   color: Colors.white,
@@ -326,7 +319,7 @@ class _NextPostState extends State<NextPost>
           centerTitle: true,
           leading: IconButton(
               onPressed: () => Navigator.of(context).pop(),
-              icon: Icon(
+              icon: const Icon(
                 CupertinoIcons.xmark,
                 size: 32,
               )),
@@ -353,13 +346,13 @@ class _NextPostState extends State<NextPost>
                   Navigator.of(context).pushNamed(AddPostFinal.routeName,
                       arguments: selectedPost);
                 },
-                child: Text(
+                child: const Text(
                   "Next",
                   style: TextStyle(color: Colors.blue),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 15,
             ),
           ],
@@ -495,7 +488,7 @@ class _NextPostState extends State<NextPost>
             filter
                 ? Expanded(
                     child: Container(
-                      decoration: BoxDecoration(color: Colors.white12),
+                      decoration: const BoxDecoration(color: Colors.white12),
                       child: ListView.builder(
                           itemCount: filters.length,
                           scrollDirection: Axis.horizontal,
@@ -515,7 +508,7 @@ class _NextPostState extends State<NextPost>
                                             : Colors.white54,
                                         fontWeight: FontWeight.w400),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
                                   ColorFiltered(
@@ -529,7 +522,7 @@ class _NextPostState extends State<NextPost>
                                             currentIndex = index;
                                           });
                                         },
-                                        child: Container(
+                                        child: SizedBox(
                                             height: 100,
                                             width: 100,
                                             child: Image.file(
@@ -560,11 +553,11 @@ class _NextPostState extends State<NextPost>
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
-                                      Text("Shadow",
+                                      const Text("Shadow",
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w400)),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
                                       GestureDetector(
@@ -582,7 +575,7 @@ class _NextPostState extends State<NextPost>
                                               border: Border.all(
                                                   color: Colors.white,
                                                   width: 1.5)),
-                                          child: Icon(
+                                          child: const Icon(
                                             Icons.light_mode_outlined,
                                             size: 30,
                                           ),
@@ -594,7 +587,7 @@ class _NextPostState extends State<NextPost>
                               }),
                         ),
                       )
-                    : SizedBox(),
+                    : const SizedBox(),
             !filter && openEdit
                 ? Padding(
                     padding: const EdgeInsets.symmetric(
@@ -644,7 +637,7 @@ class _NextPostState extends State<NextPost>
                       ],
                     ),
                   )
-                : SizedBox(),
+                : const SizedBox(),
             Container(
               color: Colors.white12,
               child: TabBar(
@@ -679,7 +672,7 @@ class _NextPostState extends State<NextPost>
                         ),
                   ),
                 ),
-                tabs: [
+                tabs: const [
                   Tab(
                     text: 'Filter',
                   ),
@@ -702,7 +695,7 @@ class CameraButton extends StatelessWidget {
     return CircleAvatar(
       backgroundColor: Colors.grey.withOpacity(0.5),
       radius: 15,
-      child: Icon(
+      child: const Icon(
         Icons.camera_alt_outlined,
         color: Colors.white,
         size: 20,
@@ -725,7 +718,7 @@ class SelectMultiple extends StatelessWidget {
         borderRadius: BorderRadius.circular(50),
         color: Colors.grey.withOpacity(0.5),
       ),
-      child: Row(
+      child: const Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -750,7 +743,7 @@ class Recent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       width: 80,
       child: Row(
         children: [
@@ -809,7 +802,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
         if (snapshot.connectionState == ConnectionState.done) {
           return VideoPlayer(_videoController);
         } else {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }

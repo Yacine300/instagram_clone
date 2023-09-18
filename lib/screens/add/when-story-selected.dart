@@ -1,11 +1,9 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/function.dart';
 import 'package:instagram_clone/screens/add/add-Post.dart';
 import 'package:provider/provider.dart';
-import 'package:video_player/video_player.dart';
 
 import '../../providers/storys.dart';
 
@@ -27,7 +25,7 @@ class _WhenStroySelectedState extends State<WhenStroySelected> {
       backgroundColor: Colors.black,
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Stack(
@@ -41,7 +39,7 @@ class _WhenStroySelectedState extends State<WhenStroySelected> {
                       height: MediaQuery.of(context).size.height - 150,
                       width: double.infinity,
                       alignment: Alignment.center,
-                      child: CircularProgressIndicator(),
+                      child: const CircularProgressIndicator(),
                     );
                   } else if (snapshot.hasData) {
                     List<Color> colors = snapshot.data!;
@@ -75,18 +73,18 @@ class _WhenStroySelectedState extends State<WhenStroySelected> {
                       height: MediaQuery.of(context).size.height - 150,
                       width: double.infinity,
                       alignment: Alignment.center,
-                      child: Text('Error loading image'),
+                      child: const Text('Error loading image'),
                     );
                   }
                 },
               ),
-              IconsSection(),
+              const IconsSection(),
             ],
           ),
           if (widget.selectedStorys.length > 1)
             widget.selectedStorys.isNotEmpty
                 ? Container(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
                     height: 100,
                     color: Colors.black54,
                     child: Row(
@@ -123,33 +121,34 @@ class _WhenStroySelectedState extends State<WhenStroySelected> {
                               }),
                         ),
                         ElevatedButton(
-                            onPressed: () {
-                              Provider.of<Storys>(context, listen: false)
-                                  .addNewStory(widget.selectedStorys,
-                                      DateTime.now().toIso8601String());
-                              Navigator.of(context).pop();
-                            },
-                            child: Row(
-                              children: [
-                                Text(
-                                  "Next",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                                Icon(
-                                  Icons.keyboard_arrow_down_rounded,
-                                  size: 18,
-                                  color: Colors.black,
-                                )
-                              ],
-                            )),
+                          onPressed: () {
+                            Provider.of<Storys>(context, listen: false)
+                                .addNewStory(widget.selectedStorys,
+                                    DateTime.now().toIso8601String());
+                            Navigator.of(context).pop();
+                          },
+                          child: const Row(
+                            children: [
+                              Text(
+                                "Next",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                              Icon(
+                                Icons.keyboard_arrow_down_rounded,
+                                size: 18,
+                                color: Colors.black,
+                              )
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   )
-                : SizedBox(),
+                : const SizedBox(),
           if (widget.selectedStorys.length == 1) ...[
-            Spacer(), // Add Spacer before Actions
+            const Spacer(), // Add Spacer before Actions
             Actions(selectedStory: widget.selectedStorys),
           ],
         ],
@@ -178,37 +177,37 @@ class Actions extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                      height: 40,
-                      width: 120,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.white.withOpacity(0.1)),
-                      child: GestureDetector(
-                        onTap: () {
-                          Provider.of<Storys>(context, listen: false)
-                              .addNewStory(selectedStory,
-                                  DateTime.now().toIso8601String());
-                          Navigator.of(context).pop();
-                        },
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Icon(
-                                Icons.person,
-                                size: 18,
-                              ),
-                              Text(
-                                "Your story",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 13),
-                              ),
-                            ],
-                          ),
+                    height: 40,
+                    width: 120,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.white.withOpacity(0.1)),
+                    child: GestureDetector(
+                      onTap: () {
+                        Provider.of<Storys>(context, listen: false).addNewStory(
+                            selectedStory, DateTime.now().toIso8601String());
+                        Navigator.of(context).pop();
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Icon(
+                              Icons.person,
+                              size: 18,
+                            ),
+                            Text(
+                              "Your story",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 13),
+                            ),
+                          ],
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
                   Container(
                       height: 40,
                       width: 140,
@@ -217,7 +216,7 @@ class Actions extends StatelessWidget {
                           borderRadius: BorderRadius.circular(50),
                           color: Colors.white.withOpacity(0.1)),
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
@@ -228,12 +227,12 @@ class Actions extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(50),
                                   color: Colors.green),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.star_rate_rounded,
                                 size: 11,
                               ),
                             ),
-                            Text(
+                            const Text(
                               "Close Friends",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 13),
@@ -243,7 +242,7 @@ class Actions extends StatelessWidget {
                       )),
                 ]),
           ),
-          Spacer(),
+          const Spacer(),
           Container(
             alignment: Alignment.center,
             height: 40,
@@ -251,7 +250,7 @@ class Actions extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
                 color: Colors.white.withOpacity(0.9)),
-            child: Icon(
+            child: const Icon(
               Icons.arrow_forward_ios_rounded,
               size: 18,
               color: Colors.black,
@@ -273,7 +272,7 @@ class IconsSection extends StatelessWidget {
     return Row(
       children: [
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           alignment: Alignment.center,
           height: 45,
           width: 45,
@@ -284,15 +283,15 @@ class IconsSection extends StatelessWidget {
             onTap: () {
               Navigator.of(context).pop();
             },
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back_ios_new_rounded,
               size: 20,
             ),
           ),
         ),
-        Spacer(),
+        const Spacer(),
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 5),
+          margin: const EdgeInsets.symmetric(horizontal: 5),
           alignment: Alignment.center,
           height: 45,
           width: 45,
